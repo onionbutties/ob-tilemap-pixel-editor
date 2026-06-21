@@ -2574,8 +2574,8 @@ drawPastePreview(){
 
     const alpha = Math.max(0.4, S.gridOpacity / 100);
     const triSize = 8;
-    const showVert = S.symmetryMode === 'horizontal' || S.symmetryMode === 'quad';
-    const showHoriz = S.symmetryMode === 'vertical' || S.symmetryMode === 'quad';
+    const showVert = S.symmetryMode === 'vertical' || S.symmetryMode === 'quad';
+    const showHoriz = S.symmetryMode === 'horizontal' || S.symmetryMode === 'quad';
 
     // Single SVG with viewBox matching workspace dimensions.
     // Lines span the canvas-area bounds (inner edges of sidebars).
@@ -7502,7 +7502,7 @@ function setupEvents(){
       else if(key==='x'){e.preventDefault();_cutSelectedTiles();}
       else if(key==='v'){
         if(_tileClipboard){ e.preventDefault(); _pasteTileBuffer(); }
-        else { e.preventDefault(); _pasteFromSystemClipboard(); }
+        // External image pastes are handled by the paste event listener below
       }
       return;
     }
@@ -8163,8 +8163,6 @@ function setupEvents(){
 
   // Paste event for external images from clipboard
   document.addEventListener('paste',(e)=>{
-    // If tile clipboard is present and was just pasted via keydown, skip external paste.
-    // Otherwise, check clipboard for image data.
     if(_tileClipboard) return;
     if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='SELECT') return;
     const items=e.clipboardData&&e.clipboardData.items;

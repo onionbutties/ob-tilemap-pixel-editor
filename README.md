@@ -6,7 +6,7 @@ A tool to create and pixel edit tilemaps, designed to work in a modern web brows
 It's considered a work in progress, and isn't perfect. It has as much as what allowed me to get on with some game stuff in Godot.
 Let me know if there's a missing feature or anything broken, but you're also welcome to throw the code into AI and have it do it.
 
-![Screenshot](images/screenshot1.png)
+![Screenshot](screenshot1.png)
 
 
 [github.com/onionbutties](https://github.com/onionbutties)
